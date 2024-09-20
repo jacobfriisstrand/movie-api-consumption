@@ -1,0 +1,216 @@
+/* A more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  /* Resets default margins and paddings */
+  margin: 0;
+  padding: 0;
+
+  /* Remove built-in form typography styles */
+  font: inherit;
+}
+
+html {
+  /* Sets default line-height */
+  line-height: 1.5;
+}
+
+body {
+  /* Sets min-height on the body for mobile devices */
+  min-height: 100dvh;
+  min-height: 100svh;
+
+  /* Fallback for desktop */
+  min-height: 100vh;
+
+  /* Make footer stick to bottom */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Makes images responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Balances headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  /* Sets the paragraph max-width to a readable length  */
+  max-width: 65ch;
+
+  /* Makes the text-wrap more aligned */
+  text-wrap: pretty;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Removes default button styling and adds a pointer cursor */
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Removes default list styling */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* ******************************************************************************** */
+
+:root {
+  --padding-small: 0.5rem;
+  --padding-large: 1rem;
+  --border-radius: 0.75rem;
+  --margin-top-small: 1rem;
+  --margin-top-large: 2rem;
+  --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+  --font-sans: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+main {
+  margin-top: var(--margin-top-small);
+}
+
+main > * {
+  padding-inline: var(--padding-large);
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: var(--font-serif);
+  padding: var(--padding-large);
+  background-color: #321224;
+  color: white;
+}
+
+div[role="tabpanel"] > *:not(:first-of-type) {
+  margin-top: var(--margin-top-large);
+}
+
+div[role="tablist"] {
+  background-color: #9a011d;
+  padding: var(--padding-large);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+  > * {
+    color: white;
+  }
+
+  @media (min-width: 1360px) {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+article {
+  border: 1px solid black;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  max-width: fit-content;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    font-family: var(--font-serif);
+    background-color: #5f0b3f;
+    color: white;
+    padding-inline: var(--padding-large);
+    padding-block: var(--padding-small);
+  }
+
+  div {
+    margin-inline: var(--padding-large);
+    p {
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  div > *:not(:first-child) {
+    margin-top: var(--margin-top-small);
+  }
+
+  img {
+    margin-inline: auto;
+    padding-block: var(--padding-large);
+    object-fit: contain;
+  }
+
+  & > :last-child {
+    padding-bottom: var(--padding-large);
+  }
+
+  @media (min-width: 1360px) {
+    display: grid;
+    grid-template-columns: max-content auto;
+
+    h2 {
+      grid-column: span 2;
+    }
+
+    img {
+      max-height: fit-content;
+      padding: 0;
+    }
+
+    div {
+      padding-top: var(--padding-large);
+    }
+  }
+}
+
+footer {
+  font-family: var(--font-serif);
+  position: fixed;
+  bottom: 0;
+  background-color: #321224;
+  color: white;
+  padding: var(--padding-small);
+  width: 100%;
+  text-align: center;
+}

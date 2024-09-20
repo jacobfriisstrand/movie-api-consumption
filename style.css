@@ -19,19 +19,6 @@ html {
   line-height: 1.5;
 }
 
-body {
-  /* Sets min-height on the body for mobile devices */
-  min-height: 100dvh;
-  min-height: 100svh;
-
-  /* Fallback for desktop */
-  min-height: 100vh;
-
-  /* Make footer stick to bottom */
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
 /* Set shorter line heights on headings and interactive elements */
 h1,
 h2,
@@ -70,12 +57,7 @@ p {
   max-width: 65ch;
 
   /* Makes the text-wrap more aligned */
-  text-wrap: pretty;
-}
-
-/* Make sure textareas without a rows attribute are not tiny */
-textarea:not([rows]) {
-  min-height: 10em;
+  text-wrap: balance;
 }
 
 /* Removes default button styling and adds a pointer cursor */
@@ -84,13 +66,6 @@ button {
   border: 0;
   cursor: pointer;
 }
-
-/* Removes default list styling */
-ul[role="list"],
-ol[role="list"] {
-  list-style: none;
-}
-
 /* ******************************************************************************** */
 
 :root {
